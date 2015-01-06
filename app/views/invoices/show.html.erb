@@ -25,5 +25,21 @@
   <%= @invoice.shop %>
 </p>
 
+<% @invoice.invoice_details.each do |x| %>
+<p>
+  <strong>Product:</strong>
+  <%= x.product.description %>
+</p>
+<p>
+  <strong>Quantity:</strong>
+  <%= x.quantity %>
+</p>
+<p>
+  <strong>price:</strong>
+  <%= x.product.price %>
+</p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>
