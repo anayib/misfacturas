@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @invoice.serial %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @invoice.date %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @invoice.total %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @invoice.user %>
+</p>
+
+<p>
+  <strong>Shop:</strong>
+  <%= @invoice.shop %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>
