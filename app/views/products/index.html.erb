@@ -1,35 +1,49 @@
-<h1>Listing products</h1>
+<div class="container">
+  <div class="row">
+    <h1>Listado de productos</h1>
+   <%= link_to 'Nuevo Producto', new_product_path, style:"float:right; color:white",class: "btn btn-success" %>
+  </div>
+</div> <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Description</th>
-      <th>Provider</th>
-      <th>Price</th>
-      <th>Image url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= form_tag products_path, method: :get do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "palabras clave..." %>
+        </div>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.code %></td>
-        <td><%= product.description %></td>
-        <td><%= product.provider %></td>
-        <td><%= product.price %></td>
-        <td><%= product.image_url %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+        <%= submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md" %>
+      <% end %>
+    </div>
+    <div class="col-sm-9">
+      <table class="table" id="transactions">
+        <thead>
+          <tr>
+            <th>nombre</th>
+            <th>código</th>
+            <th>descripción</th>
+            <th>proveedor</th>
+            <th>precio unidad</th>
+            <th>imagen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.name %></td>
+              <td><%= product.code %></td>
+              <td><%= product.description %></td>
+              <td><%= product.provider %></td>
+              <td><%= product.price %></td>
+              <td><%= product.image_url %></td>
+              <td><%= link_to 'Show', product %></td>
+              <td><%= link_to 'Edit', edit_product_path(product) %></td>
+              <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
