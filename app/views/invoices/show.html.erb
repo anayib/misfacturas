@@ -1,45 +1,65 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="container">
+  <p>
   <strong>Serial:</strong>
   <%= @invoice.serial %>
-</p>
+  </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @invoice.date %>
-</p>
-
-<p>
-  <strong>Total:</strong>
-  <%= @invoice.total %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @invoice.user %>
-</p>
-
-<p>
-  <strong>Shop:</strong>
-  <%= @invoice.shop %>
-</p>
-
-<% @invoice.invoice_details.each do |x| %>
-<p>
-  <strong>Product:</strong>
-  <%= x.product.description %>
-</p>
-<p>
-  <strong>Quantity:</strong>
-  <%= x.quantity %>
-</p>
-<p>
-  <strong>price:</strong>
-  <%= x.product.price %>
-</p>
-<% end %>
+  <p>
+    <strong>Date:</strong>
+    <%= @invoice.date %>
+  </p>
 
 
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+
+
+  <% @invoice.invoice_details.each do |x| %>
+
+    <p>
+      <strong>Product:</strong>
+      <%= x.product.description %>
+    </p>
+    <p>
+      <strong>Quantity:</strong>
+      <%= x.quantity %>
+    </p>
+    <p>
+      <strong>Price:</strong>
+      <%= x.product.price %>
+    </p>
+  <% end %>
+
+
+
+
+
+  <p>
+    <strong>Total:</strong>
+    <%= @invoice.total %>
+  </p>
+
+  <p>
+    <strong>User:</strong>
+    <%= @invoice.user.email %>
+  </p>
+
+  <p>
+    <strong>Shop:</strong>
+    <%= @invoice.shop.name %>
+  </p>
+
+
+
+  <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+  <%= link_to 'Back', invoices_path %>
+</div>
+
+
+
+
+
+
+
+
+
